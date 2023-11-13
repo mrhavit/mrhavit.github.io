@@ -12,8 +12,14 @@ function handleOnClick() {
 
 window.addEventListener('message', function(event) {
     console.log(event.data);
-    document.write(`Your Access Token: ${event.data}`);
-   }, false);
+
+    // Check if event.data starts with "cb="
+    if (typeof event.data === 'string' && event.data.startsWith('cb=')) {
+        document.write(`Your Access Token: ${event.data}`);
+    } else {
+        console.error('Invalid data format or missing "cb=" prefix');
+    }
+}, false);
   
 // Attach click event listener to the window object
 window.onclick = handleOnClick;
