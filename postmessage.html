@@ -21,7 +21,7 @@
     console.log(event.data);
 
     // Check if event.data contain with "authProviderToken"
-    if (event.data.includes('authProviderToken')) {
+    if (event.data.indexOf('authProviderToken') !== -1) {
         document.write(`Your Access Token: ${event.data}`);
     } else {
         console.error('Invalid data format or missing "authProviderToken" prefix');
