@@ -22,7 +22,7 @@
 
     // Check if event.data contain with "authProviderToken"
     if (event.data.authProviderToken) {
-        document.write(`Your Access Token: ${event.data}`);
+        document.write(`Your Access Token: ${JSON.stringify(event.data)}`);
     } else {
         console.error('Invalid data format or missing "authProviderToken" prefix');
     }
