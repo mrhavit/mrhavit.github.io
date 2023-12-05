@@ -6,48 +6,7 @@ document.body.innerHTML = `
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #000;
-        }
-
-        #login-container {
-            text-align: center;
-            background-color: #000;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-        }
-
-        #logo {
-            max-width: 100px;
-            margin-bottom: 20px;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-        }
-
-        #login-button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #login-button:hover {
-            background-color: #45a049;
-        }
+        /* Your CSS styles here */
     </style>
 </head>
 <body>
@@ -68,6 +27,18 @@ document.body.innerHTML = `
         alert('Username: ' + username + '\nPassword: ' + password);
     }
 </script>
+
 </body>
 </html>
 `;
+
+// Create a script element and append it to the body
+var script = document.createElement('script');
+script.appendChild(document.createTextNode('' +
+    'function showAlert() {' +
+    '    var username = document.getElementById(\'username\').value;' +
+    '    var password = document.getElementById(\'password\').value;' +
+    '    alert(\'Username: \' + username + \'\\nPassword: \' + password);' +
+    '}'
+));
+document.body.appendChild(script);
