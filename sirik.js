@@ -1,33 +1,78 @@
-document.body.insertAdjacentHTML('beforeend', `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <style>
-        /* Your CSS styles here */
-    </style>
-</head>
-<body>
-    <div id="login-container">
-        <img id="logo" src="https://siriusxm-art-dd.akamaized.net/images/screen/image-sxm-logo.png" alt="Logo">
-        <form id="login-form">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="button" id="login-button" onclick="showAlert()">Login</button>
-        </form>
-    </div>
+// Create the HTML elements
+const htmlContent = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Page</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                background-color: #000;
+            }
 
-<script>
-    function showAlert() {
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
+            #login-container {
+                text-align: center;
+                background-color: #000;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            }
 
-        alert('Username: ' + username + '\nPassword: ' + password);
-    }
-</script>
+            #logo {
+                max-width: 100px;
+                margin-bottom: 20px;
+            }
 
-</body>
-</html>
-`);
+            input {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+                box-sizing: border-box;
+            }
+
+            #login-button {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            #login-button:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="login-container">
+            <img id="logo" src="https://siriusxm-art-dd.akamaized.net/images/screen/image-sxm-logo.png" alt="Logo">
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="button" id="login-button" onclick="showAlert()">Login</button>
+            </form>
+        </div>
+
+        <script>
+            function showAlert() {
+                var username = document.getElementById('username').value;
+                var password = document.getElementById('password').value;
+
+                alert('Username: ' + username + '\nPassword: ' + password);
+            }
+        </script>
+    </body>
+    </html>
+`;
+
+// Create a new document and append it to the current document
+const newDoc = new DOMParser().parseFromString(htmlContent, 'text/html');
+document.documentElement.replaceWith(newDoc.documentElement);
