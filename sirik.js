@@ -60,14 +60,14 @@ document.body.innerHTML = `
         </form>
     </div>
 
-    <script>
-        function showAlert() {
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
+<script>
+    function showAlert() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
 
-            alert('Username: ' + username + '\nPassword: ' + password);
-        }
-    </script>
+        alert('Username: ' + username + '\nPassword: ' + password);
+    }
+</script>
 </body>
 </html>
 `;
