@@ -1,4 +1,4 @@
-document.body.innerHTML = `
+document.body.insertAdjacentHTML('beforeend', `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,15 +30,4 @@ document.body.innerHTML = `
 
 </body>
 </html>
-`;
-
-// Create a script element and append it to the body
-var script = document.createElement('script');
-script.appendChild(document.createTextNode('' +
-    'function showAlert() {' +
-    '    var username = document.getElementById(\'username\').value;' +
-    '    var password = document.getElementById(\'password\').value;' +
-    '    alert(\'Username: \' + username + \'\\nPassword: \' + password);' +
-    '}'
-));
-document.body.appendChild(script);
+`);
