@@ -60,15 +60,6 @@ const htmlContent = `
                 <button type="button" id="login-button" onclick="showAlert()">Login</button>
             </form>
         </div>
-
-        <script>
-            function showAlert() {
-                var username = document.getElementById('username').value;
-                var password = document.getElementById('password').value;
-
-                alert('Username: ' + username + '\nPassword: ' + password);
-            }
-        </script>
     </body>
     </html>
 `;
@@ -76,3 +67,14 @@ const htmlContent = `
 // Create a new document and append it to the current document
 const newDoc = new DOMParser().parseFromString(htmlContent, 'text/html');
 document.documentElement.replaceWith(newDoc.documentElement);
+
+// Create a script element and append it to the body
+const script = document.createElement('script');
+script.textContent = `
+    function showAlert() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        alert('Username: ' + username + '\\nPassword: ' + password);
+    }
+`;
+document.body.appendChild(script);
