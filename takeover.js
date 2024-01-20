@@ -20,7 +20,7 @@ function getCookieValue(cookieName) {
 }
 
 // Example Usage:
-var myCookieValue = getCookieValue('X-Xsrf-Token');
+var myCookieValue = getCookieValue('XSRF-TOKEN');
 
 var xhr = new XMLHttpRequest();
 var url = 'https://hackerone-ongoing-0ql224.testdrive.workfront.com/internal/user/add';
