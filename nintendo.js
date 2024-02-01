@@ -3,10 +3,11 @@ window.open('https://accounts.nintendo.com/connect/1.0.0/authorize?client_id=e56
 window.addEventListener('message', function(event) {
     console.log(event.data);
 
-    // Check if event.data starts with "cb="
-    if (event.data.access_token) {
-        document.write(`Your Access Token: ${event.data}`);
+    // Check if event.data has the property "access_token"
+    if (event.data && event.data.extra && event.data.extra.access_token) {
+        var accessToken = event.data.extra.access_token;
+        document.write(`Your Access Token: ${accessToken}`);
     } else {
-        console.error('Invalid data format or missing');
+        console.error('Invalid data format or missing access_token');
     }
 }, false);
