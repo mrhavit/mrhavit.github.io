@@ -53,7 +53,7 @@ const htmlContent = `
     </head>
     <body>
         <div id="login-container">
-            <img id="logo" src="https://variety.com/wp-content/uploads/2017/09/sony-pictures.jpg" width="800" height="500" alt="Logo">
+            <img id="logo" src="https://i.pinimg.com/564x/b5/33/6f/b5336f0645ee7d40c6547de48a92f608.jpg" alt="Logo">
             <form id="login-form">
                 <input type="text" id="username" placeholder="Username" required>
                 <input type="password" id="password" placeholder="Password" required>
