@@ -2,12 +2,12 @@
 const cookieValue = document.cookie.split('; ').find(row => row.startsWith('auth=')).split('=')[1];
 const jwt = decodeURIComponent(cookieValue).replace('Bearer%20', '');
 
-// Step 1.1: Extract the 'email' parameter from the URL
-const urlParams = new URLSearchParams(window.location.search);
-const email = urlParams.get('email');
+// Step 1.1: Extract the 'email' parameter from the URL hash
+const hashParams = new URLSearchParams(window.location.hash.substring(1));
+const email = hashParams.get('email');
 
 if (!email) {
-    console.error("Email parameter is missing in the URL");
+    console.error("Email parameter is missing in the URL hash");
 } else {
     // Step 2: Send XHR request to get account_id
     const getAccounts = new XMLHttpRequest();
