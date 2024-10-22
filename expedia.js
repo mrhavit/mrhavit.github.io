@@ -21,5 +21,5 @@ button.addEventListener('click', () => {
                 newWindow.close(); // Step 4: Close the new tab
             }
         }
-    }, 4000);
+    }, 13000);
 });
