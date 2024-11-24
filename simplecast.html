@@ -1,53 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button and Iframe</title>
-    <style>
-        iframe {
-            position: relative;
-            width: 1000px;
-            height: 1000px;
-            opacity: 0.2;
-            z-index: 2;
-        }
-        div {
-            position: absolute;
-            top: 50px;
-            left: 50px;
-            z-index: 1;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paste on Button Click</title>
 </head>
 <body>
-    <button id="actionButton">Click Me</button>
+  <textarea id="output" placeholder="Paste content will appear here" rows="5" cols="30"></textarea>
+  <br>
+  <button id="pasteButton">Paste</button>
 
-    <script>
-        document.getElementById('actionButton').addEventListener('click', () => {
-            // Step 1: Open a new tab and close it after 1 second
-            const newTab = window.open('https://dashboard.simplecast.com/', '_blank');
-            setTimeout(() => {
-                if (newTab) {
-                    newTab.close();
-                }
-                
-                // Step 2: Remove the button
-                const button = document.getElementById('actionButton');
-                if (button) {
-                    button.remove();
-                }
+  <script>
+    // Ensure the browser supports the Clipboard API
+    document.getElementById("pasteButton").addEventListener("click", async () => {
+  console.log("Button clicked");
+  try {
+    // Read text from clipboard
+    const text = await navigator.clipboard.readText();
+    console.log("Clipboard content:", text);  // Log the clipboard content
+    // Insert the text into the textarea
+    document.getElementById("output").value = text;
+  } catch (error) {
+    console.error("Failed to paste content:", error);
+  }
+});
 
-                // Step 3: Create the iframe and div
-                const containerDiv = document.createElement('div');
-                containerDiv.textContent = 'Click Here';
-                document.body.appendChild(containerDiv);
-
-                const iframe = document.createElement('iframe');
-                iframe.src = 'https://dashboard.simplecast.com/accounts/junk/apps/';
-                document.body.appendChild(iframe);
-            }, 1000);
-        });
-    </script>
+  </script>
 </body>
 </html>
