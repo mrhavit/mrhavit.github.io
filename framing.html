@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Iframe</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        iframe {
+            width: 90%;
+            height: 90%;
+            border: none;
+        }
+    </style>
+    <script>
+        function loadIframe() {
+            const params = new URLSearchParams(window.location.search);
+            const url = params.get('url');
+
+            if (url) {
+                const iframe = document.getElementById('iframe');
+                try {
+                    const sanitizedUrl = new URL(url); // Basic validation
+                    iframe.src = sanitizedUrl.href;
+                } catch (error) {
+                    console.error('Invalid URL:', error);
+                    iframe.srcdoc = '<p>Invalid or blocked URL</p>';
+                }
+            } else {
+                document.body.innerHTML = '<p>No URL parameter provided.</p>';
+            }
+        }
+
+        window.onload = loadIframe;
+    </script>
+</head>
+<body>
+    <iframe id="iframe"></iframe>
+</body>
+</html>
