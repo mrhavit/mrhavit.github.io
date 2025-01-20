@@ -13,10 +13,9 @@ for (const cookie of cookies) {
 // Remove "Bearer%20" from the cookie
 const authToken = decodeURIComponent(authCookie.replace('Bearer%20', ''));
 
-// Extract the email from the URL hash
-const urlHash = window.location.hash;
-const emailMatch = urlHash.match(/email=([^&]+)/);
-const email = emailMatch ? decodeURIComponent(emailMatch[1]) : null;
+// Generate static email
+const generateNumber = Math.floor(Math.random() * 1000000); // Generate a random number
+const email = `mrhavit+${generateNumber}@wearehackerone.com`;
 
 if (!authToken || !email) {
     console.error('Required data (auth token or email) is missing.');
