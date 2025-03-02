@@ -1,4 +1,5 @@
 document.open();
+document.write(``)
 document.write(`
     <style>
         iframe {
