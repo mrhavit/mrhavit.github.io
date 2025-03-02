@@ -1,6 +1,3 @@
-const params = new URLSearchParams(window.location.search);
-const iframeUrl = params.get('url') || 'https://example.com/';
-
 document.open();
 document.write(`
     <style>
@@ -26,6 +23,6 @@ document.write(`
     </style>
     <div>Second, Middle-Mouse-Click</div>
     <div class="blabla">First, Regular click</div>
-    <iframe src="${iframeUrl}"></iframe>
+    <iframe src="https://new.express.adobe.com/publishedV2/urn:aaid:sc:AP:14c3b7df-de99-4e81-858c-142e1fb72e75?category=search"></iframe>
 `);
 document.close();
