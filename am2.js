@@ -1,4 +1,4 @@
-document.body.innerHTML = '';
+document.body.innerHTML = 'Please Click Anywhere';
 document.body.onclick = () => {
     let w = window.open('https://smartpos.amazon.in/', '_blank');
     setTimeout(() => {
