@@ -1,4 +1,4 @@
-document.body.innerHTML = 'Please Click Anywhere';
+document.write('<h15>Click Anywhere To Start</h1>')
 document.body.onclick = () => {
     let w = window.open('https://smartpos.amazon.in/', '_blank');
     setTimeout(() => {
