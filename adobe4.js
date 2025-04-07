@@ -19,18 +19,28 @@ document.addEventListener('click', () => {
 
 window.addEventListener('message', (event) => {
     try {
-        const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
+        const outerData = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
 
-        if (data && data.name === 'query-state' && data.data) {
-            const innerData = typeof data.data === 'string' ? JSON.parse(data.data) : data.data;
+        if (outerData && outerData.name === 'query-state' && outerData.data) {
+            // First decode
+            const innerDataRaw = typeof outerData.data === 'string' ? JSON.parse(outerData.data) : outerData.data;
 
-            if (innerData.name === 'AccessTokenFlow' && innerData.data && innerData.data.access_token) {
-                const accessToken = innerData.data.access_token;
+            // Check for access token
+            if (
+                innerDataRaw.name === 'AccessTokenFlow' &&
+                innerDataRaw.data &&
+                innerDataRaw.data.access_token
+            ) {
+                const accessToken = innerDataRaw.data.access_token;
                 alert(`Received access token: ${accessToken}`);
                 document.write(`Received access token: ${accessToken}`);
+            } else {
+                console.log('No access_token found in innerDataRaw:', innerDataRaw);
             }
+        } else {
+            console.log('Unexpected message structure:', outerData);
         }
     } catch (error) {
-        console.error('Invalid message data:', event.data);
+        console.error('Error parsing message:', error, event.data);
     }
 });
