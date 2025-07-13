@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html>
-<body>
-<script>
 document.write('<b>Click anywhere to start</b>');
 
 document.addEventListener('click', () => {
@@ -24,6 +20,3 @@ document.addEventListener('click', () => {
     }
   }, 2000);
 });
-</script>
-</body>
-</html>
