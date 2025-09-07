@@ -1,1 +1,1 @@
-location.href = 'http://qga006ukajyyp4in0t1x3ueb228twukj.oastify.com/hello'
+location.href = 'https://qga006ukajyyp4in0t1x3ueb228twukj.oastify.com/hello'
