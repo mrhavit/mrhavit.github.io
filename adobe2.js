@@ -1,1 +1,1 @@
-location.href = 'https://tinyurl.com/2s3nthyy'
+location.href = 'http://169.254.169.254'
