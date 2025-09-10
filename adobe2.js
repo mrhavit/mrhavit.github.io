@@ -1,1 +1,1 @@
-location.href = 'https://localhost'
+location.href = 'https://bfu0rtff7h0xohu2j5k2amu8jzpqdi17.oastify.com/iframed'
