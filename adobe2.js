@@ -1,1 +1,1 @@
-parent.location.href = 'https://xwxm8fw1o3hj53bo0r1or8bu0l6cu5iu.oastify.com/dsadsa'
+document.write(document.location.href);
