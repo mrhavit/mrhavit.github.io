@@ -1,1 +1,1 @@
-location.href = 'https://uigjuciya03gr0xlmonld5xrmis9g34s.oastify.com/blabla'
+location.href = 'https://now.corp.adobe.com'
