@@ -1,1 +1,1 @@
-document.write(document.location.href);
+location.href = 'https://uigjuciya03gr0xlmonld5xrmis9g34s.oastify.com/blabla'
