@@ -1,1 +1,1 @@
-location.href = 'https://bfu0rtff7h0xohu2j5k2amu8jzpqdi17.oastify.com/iframed'
+parent.location.href = 'https://xwxm8fw1o3hj53bo0r1or8bu0l6cu5iu.oastify.com/dsadsa'
