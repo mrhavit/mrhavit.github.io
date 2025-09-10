@@ -1,1 +1,1 @@
-location.href = 'http://169.254.169.254'
+location.href = 'https://localhost'
