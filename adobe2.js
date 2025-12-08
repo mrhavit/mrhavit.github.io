@@ -16,3 +16,5 @@
       return;
   }
 })();
+
+document.write('<h1>mr</h1>')
