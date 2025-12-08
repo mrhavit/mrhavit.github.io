@@ -17,4 +17,5 @@
   }
 })();
 
-document.write('<h1>mr</h1>')
+document.querySelectorAll(".auto-size-span")[0].textContent = "HackerOne2";
+document.querySelectorAll(".auto-size-span")[1].textContent = "mrhavit2";
