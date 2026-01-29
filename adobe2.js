@@ -5,14 +5,9 @@
   var parentUrl = params.get("parenturl");
   var fileUrl   = params.get("file");
 
-  // If file= is present → PUT fetch and render response
+  // If file= is present → fetch and render response
   if (fileUrl) {
-    fetch(fileUrl, {
-      method: "PUT",
-      headers: {
-        "X-aws-ec2-metadata-token-ttl-seconds": "21600"
-      }
-    })
+    fetch(fileUrl)
       .then(function (res) {
         return res.text();
       })
@@ -21,7 +16,7 @@
         document.write(data);
         document.close();
       })
-      .catch(function () {
+      .catch(function (e) {
         document.write("Error loading file");
       });
     return;
