@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mrhavit github</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mrhavit github</title>
 </head>
 <body>
-    <b>mrhavit github</b>
+  <b>mrhavit github</b>
 </body>
+
 <script>
-    window.onload = () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const code = urlParams.get("code");
-      if (code) alert(code); console.log("victim code: " + code)
-    };
-  </script>
+window.onload = () => {
+  let code = null;
+
+  // 1. Try query params (?code=)
+  const urlParams = new URLSearchParams(window.location.search);
+  code = urlParams.get("code");
+
+  // 2. If not found, try hash (#code= or #foo=1&code=XYZ)
+  if (!code && window.location.hash) {
+    const hash = window.location.hash.substring(1); // remove '#'
+    const hashParams = new URLSearchParams(hash);
+    code = hashParams.get("code");
+  }
+
+  // 3. Output
+  if (code) {
+    alert(code);
+    console.log("victim code: " + code);
+  } else {
+    console.log("No code found");
+  }
+};
+</script>
 </html>
